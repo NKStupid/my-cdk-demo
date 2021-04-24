@@ -14,7 +14,7 @@ class Ec2InstanceProps {
   readonly instanceType : ec2.InstanceType;
   readonly userData : UserData;
   readonly subnet : ec2.ISubnet;
-  readonly privateIP: ""
+  readonly privateIP: "";
 //   readonly role : Role;
 }
 class Ec2 extends Resource {
