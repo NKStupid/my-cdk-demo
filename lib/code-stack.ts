@@ -82,7 +82,7 @@ export class CodeStack extends cdk.Stack {
       image: new AmazonLinuxImage(),
       instanceType : ec2.InstanceType.of(ec2.InstanceClass.BURSTABLE2, ec2.InstanceSize.MICRO),
       subnet : publicSubnet0,
-      role: role,
+//       role: role,
       userData : ssmaUserData 
     })
   }
