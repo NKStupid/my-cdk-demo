@@ -56,7 +56,7 @@ export class CodeStack extends cdk.Stack {
     // create VPC w/ public and private subnets in 1 AZ
     // this also creates a NAT Gateway 
     // I am using 1 AZ because it's a demo.  In real life always use >=2
-    const vpc = new ec2.Vpc(this, 'NewsBlogVPC', {
+    const vpc = new ec2.Vpc(this, 'LabEnv', {
       maxAzs : 1,
       cidr: "192.168.99.0/24",
       natGateways: 0
