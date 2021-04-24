@@ -2,7 +2,7 @@ import ec2 = require('@aws-cdk/aws-ec2');
 import cdk = require('@aws-cdk/core');
 
 import { Fn, Tag, Resource } from '@aws-cdk/core';
-import { AmazonLinuxImage, UserData, InstanceType } from '@aws-cdk/aws-ec2';
+import { AmazonLinuxImage, UserData, InstanceType, PrivateIpAddress } from '@aws-cdk/aws-ec2';
 import { Role, ServicePrincipal, ManagedPolicy, CfnInstanceProfile } from '@aws-cdk/aws-iam'
 
 /**
