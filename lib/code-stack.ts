@@ -71,21 +71,21 @@ export class CodeStack extends cdk.Stack {
 //     role.addManagedPolicy(ManagedPolicy.fromAwsManagedPolicyName('AmazonSSMManagedInstanceCore'));
     
 
-    // define a user data script to install & launch our web server 
-    const ssmaUserData = UserData.forLinux();
-    // make sure the latest SSM Agent is installed.
-//     const SSM_AGENT_RPM='https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm';
-//     ssmaUserData.addCommands(`sudo yum install -y ${SSM_AGENT_RPM}`, 'restart amazon-ssm-agent');
-    // install and start Nginx
-    ssmaUserData.addCommands('yum install -y nginx', 'chkconfig nginx on', 'service nginx start');
+//     // define a user data script to install & launch our web server 
+//     const ssmaUserData = UserData.forLinux();
+//     // make sure the latest SSM Agent is installed.
+// //     const SSM_AGENT_RPM='https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm';
+// //     ssmaUserData.addCommands(`sudo yum install -y ${SSM_AGENT_RPM}`, 'restart amazon-ssm-agent');
+//     // install and start Nginx
+//     ssmaUserData.addCommands('yum install -y nginx', 'chkconfig nginx on', 'service nginx start');
 
-    // launch an EC2 instance in the private subnet
-    const instance = new Ec2(this, 'NewsBlogInstance', {
-      image: new AmazonLinuxImage(),
-      instanceType : ec2.InstanceType.of(ec2.InstanceClass.BURSTABLE2, ec2.InstanceSize.MICRO),
-      subnet : publicSubnet0,
-//       role: role,
-      userData : ssmaUserData 
-    })
+//     // launch an EC2 instance in the private subnet
+//     const instance = new Ec2(this, 'NewsBlogInstance', {
+//       image: new AmazonLinuxImage(),
+//       instanceType : ec2.InstanceType.of(ec2.InstanceClass.BURSTABLE2, ec2.InstanceSize.MICRO),
+//       subnet : publicSubnet0,
+// //       role: role,
+//       userData : ssmaUserData 
+//     })
   }
 }
