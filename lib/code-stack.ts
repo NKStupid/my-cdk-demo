@@ -49,7 +49,7 @@ class Ec2 extends Resource {
   }
 }
 
-export class CodeStack extends cdk.Stack {
+export class EC2Stack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
