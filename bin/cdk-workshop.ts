@@ -4,4 +4,4 @@ import { CodeStack } from '../lib/code-stack';
 
 
 const app = new cdk.App();
-new CdkWorkshopStack(app, 'CodeStack');
+new CodeStack(app, 'CodeStack');
