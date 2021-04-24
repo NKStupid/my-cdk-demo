@@ -30,12 +30,12 @@ class Ec2 extends Resource {
       // create the instance
       const instance = new ec2.CfnInstance(this, id, {
         imageId: props.image.getImage(this).imageId,
-        privateIpAddress: "192.168.99.10",
         keyName: "ecs-ec2",
         instanceType: props.instanceType.toString(),
         networkInterfaces: [
           {
             deviceIndex: "0",
+            privateIpAddress: "192.168.99.10",
             subnetId: props.subnet.subnetId
           }
         ]
