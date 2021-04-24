@@ -14,6 +14,7 @@ class Ec2InstanceProps {
   readonly instanceType : ec2.InstanceType;
   readonly userData : UserData;
   readonly subnet : ec2.ISubnet;
+  readonly privateIP: ""
 //   readonly role : Role;
 }
 class Ec2 extends Resource {
@@ -30,7 +31,7 @@ class Ec2 extends Resource {
         networkInterfaces: [
           {
             deviceIndex: "0",
-            privateIpAddress: "192.168.99.10",
+            privateIpAddress: props.privateIP,
             subnetId: props.subnet.subnetId
           }
         ]
@@ -54,12 +55,13 @@ export class EC2Stack extends cdk.Stack {
     ssmaUserData.addCommands('yum install -y nginx', 'chkconfig nginx on', 'service nginx start');
 
     // launch an EC2 instance in the private subnet
-    const instance = new Ec2(this, 'NewsBlogInstance', {
+    const instance = new Ec2(this, 'Slave-1', {
       image: new AmazonLinuxImage(),
       instanceType : ec2.InstanceType.of(ec2.InstanceClass.BURSTABLE2, ec2.InstanceSize.MICRO),
       subnet : publicSubnet0,
 //       role: role,
-      userData : ssmaUserData 
+      userData : ssmaUserData,
+      privateIP: "192.168.99.10"
     })
   }
 }
