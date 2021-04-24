@@ -61,7 +61,7 @@ export class EC2Stack extends cdk.Stack {
 //       cidr: "192.168.99.0/24",
 //       natGateways: 0
 //     });
-    const vpc = ec2.Vpc.from_lookup(this, "LabEnv", vpc_id: "vpc-0474e825ff37bca15")
+    const vpc = ec2.Vpc.from_lookup(this, "LabEnv", vpc_id = "vpc-0474e825ff37bca15")
     
     const publicSubnet0 = vpc.publicSubnets[0];
 
