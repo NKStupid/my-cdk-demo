@@ -44,7 +44,7 @@ class Ec2 extends Resource {
       });
 
       // tag the instance
-      Tag.add(instance, 'Name', `${CodeStack.name}/${id}`);
+      Tag.add(instance, 'Name', `${EC2Stack.name}/${id}`);
       }
   }
 }
