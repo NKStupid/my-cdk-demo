@@ -54,14 +54,17 @@ export class EC2Stack extends cdk.Stack {
     const ssmaUserData = UserData.forLinux();
     ssmaUserData.addCommands('yum install -y nginx', 'chkconfig nginx on', 'service nginx start');
 
-    // launch an EC2 instance in the private subnet
-    const instance = new Ec2(this, 'Slave-1', {
-      image: new AmazonLinuxImage(),
-      instanceType : ec2.InstanceType.of(ec2.InstanceClass.BURSTABLE2, ec2.InstanceSize.MICRO),
-      subnet : publicSubnet0,
-//       role: role,
-      userData : ssmaUserData,
-      privateIP: "192.168.99.10"
-    })
+    for (let i = 0; i < 2; i++) {
+      console.log ("Block statement execution no." + i);
+        // launch an EC2 instance in the private subnet
+        const instance = new Ec2(this, 'Slave-' + i, {
+          image: new AmazonLinuxImage(),
+          instanceType : ec2.InstanceType.of(ec2.InstanceClass.BURSTABLE2, ec2.InstanceSize.MICRO),
+          subnet : publicSubnet0,
+    //       role: role,
+          userData : ssmaUserData,
+          privateIP: `192.168.99.${i}0`
+        }) // new instance ends.
+     } // for loop ends.
   }
 }
