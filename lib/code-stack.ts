@@ -38,7 +38,7 @@ class Ec2 extends Resource {
           }
         ]
         ,userData: Fn.base64(props.userData.render())
-        ,iamInstanceProfile: profile.ref
+//         ,iamInstanceProfile: profile.ref
       });
 
       // tag the instance
