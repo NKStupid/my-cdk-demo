@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import * as cdk from '@aws-cdk/core';
-import { CodeStack } from '../lib/ec2-stack';
+import { EC2Stack } from '../lib/ec2-stack';
 
 
 const app = new cdk.App();
