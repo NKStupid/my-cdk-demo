@@ -23,9 +23,9 @@ class Ec2 extends Resource {
     if (props) {
 
       //create a profile to attch the role to the instance
-      const profile = new CfnInstanceProfile(this, `${id}Profile`, {
-        roles: [ props.role.roleName ]
-      });
+//       const profile = new CfnInstanceProfile(this, `${id}Profile`, {
+//         roles: [ props.role.roleName ]
+//       });
 
       // create the instance
       const instance = new ec2.CfnInstance(this, id, {
