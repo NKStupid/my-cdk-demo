@@ -56,7 +56,8 @@ export class CodeStack extends cdk.Stack {
     // I am using 1 AZ because it's a demo.  In real life always use >=2
     const vpc = new ec2.Vpc(this, 'NewsBlogVPC', {
       maxAzs : 1,
-      cidr: "192.168.99.0/24"
+      cidr: "192.168.99.0/24",
+      natGateways: 0
     });
     const publicSubnet0 = vpc.publicSubnets[0];
 
